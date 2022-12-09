@@ -1,12 +1,19 @@
 .App {
   color: beige;
 }
-.block {
-  position: absolute;
+
+.snake {
+  display: flex;
+  flex-direction: row;
   background-color: yellowgreen;
 }
+/* 
+.blocks-container{
+  display: block;
+} */
 
 .block {
+  position: absolute;
   width: 50px;
   height: 50px;
   background-color: black;

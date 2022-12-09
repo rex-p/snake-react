@@ -1,42 +1,67 @@
 import Block from './Block';
 import { useEffect, useState } from 'react';
+import {
+    DIRECTIONS, KEYCODES, INITIAL_BLOCKS_LENGTH, INITIAL_POSITION, BLOCK_DIAMETER
+} from './Constants'
+
+
+// Constants
+
+const getInitialBlocks = () => {
+    let blocks = [];
+    let position = INITIAL_POSITION;
+    for (let i = 0; i < INITIAL_BLOCKS_LENGTH; i++) {
+        const block = {
+            position:{
+                top: INITIAL_POSITION.top,
+                left: INITIAL_POSITION.left + (i * BLOCK_DIAMETER)
+            },
+            direction: DIRECTIONS.RIGHT
+        }
+        blocks.push(block);
+    }
+    return blocks;
+}
 
 function Snake() {
-    const [blocks, setBlocks] = useState([1]);
-    const [currentDirection, setCurrentDirection] = useState('left');
-    const [position, setPosition] = useState({ top: 100, left: 100 });
+    const [blocks, setBlocks] = useState(getInitialBlocks());
+    const [currentDirection, setCurrentDirection] = useState(DIRECTIONS.DOWN);
 
-    const moveSnake = () => {
+    // const handleChangeDirection = (event) => {
+    //     switch (event.keyCode) {
+    //         case KEYCODES.LEFT:
+    //             setCurrentDirection(DIRECTIONS.LEFT);
+    //             break;
+    //         case KEYCODES.RIGHT:
+    //             setCurrentDirection(DIRECTIONS.RIGHT);
+    //             break;
+    //         case KEYCODES.UP:
+    //             setCurrentDirection(DIRECTIONS.UP);
+    //             break;
+    //         case KEYCODES.DOWN:
+    //             setCurrentDirection(DIRECTIONS.DOWN);
+    //             break;
+    //         default:
+    //             break;
+    //     }
 
-    }
+    // }
 
-    useEffect(() => {
-        /**
-         * Logic to move the snake
-         */
-        const interval = setInterval(() => {
-            setPosition(currentPosition => {
-                const { top, left } = currentPosition;
-                const newPosition = {
-                    // top: top + 1,
-                    left: left + 10
-                }
-                return newPosition;
-            })
-        }, 1000);
+    // useEffect(() => {
+    //     document.addEventListener("keydown", handleChangeDirection);
+    //     return () => {
+    //         document.removeEventListener("keydown", handleChangeDirection);
+    //     }
+    // }, [])
 
-        //Cleanup function of this hook
-        return () => {
-            clearInterval(interval);
-        }
-    }, [position])
 
-    const { top, left } = position;
-    const style = {
-        top: `${top}px`,
-        left: `${left}px`
-    }
-    return <div className='snake' style={style}>{blocks.map(block => <Block key={block}></Block>)}</div>
+
+    console.log({ blocks })
+    return <div className='snake'>
+        {blocks.map((block, i) =>
+            < Block key={i} currentDirection={block.direction} initialPosition={block.position} ></Block>
+        )}
+    </div >
 }
 
 
