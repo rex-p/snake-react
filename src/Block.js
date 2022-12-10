@@ -1,12 +1,7 @@
-import { useEffect, useState } from 'react';
-import {
-    DIRECTIONS, SPEED, RERESH_RATE_MS
-} from './Constants'
+function Block({ blockInfo }) {
 
-function Block({ blockInfo, pivotPositions, dequePivotPositionQueue }) {
+    const { position } = blockInfo;
 
-    const {index, position, direction} = blockInfo;
-    
 
     const { top, left } = position;
     const style = {
