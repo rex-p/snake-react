@@ -6,8 +6,8 @@ export const DIRECTIONS = {
 }
 
 export const INITIAL_POSITION = { top: 100, left: 100 }
-export const RERESH_RATE_MS = 100;
-export const BLOCK_DIAMETER = 25;
+export const RERESH_RATE_MS = 250;
+export const BLOCK_DIAMETER = 50;
 
 export const KEYCODES = {
     LEFT: 37,
