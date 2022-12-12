@@ -1,14 +1,13 @@
 export const DIRECTIONS = {
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40
+    LEFT: "left",
+    UP: "up",
+    RIGHT: "right",
+    DOWN: "down"
 }
 
-export const SPEED = 50;
 export const INITIAL_POSITION = { top: 100, left: 100 }
-export const RERESH_RATE_MS = 500;
-export const BLOCK_DIAMETER = 50;
+export const RERESH_RATE_MS = 100;
+export const BLOCK_DIAMETER = 25;
 
 export const KEYCODES = {
     LEFT: 37,
@@ -18,14 +17,19 @@ export const KEYCODES = {
 }
 export const INITIAL_BLOCKS_LENGTH = 10;
 
-const { LEFT, RIGHT, UP, DOWN } = KEYCODES;
-let DIRECTION_KEYCODE_MAP = {
-
+const DIRECTION_KEYCODE_MAP = {
+    37: DIRECTIONS.LEFT,
+    38: DIRECTIONS.UP,
+    39: DIRECTIONS.RIGHT,
+    40: DIRECTIONS.DOWN
 };
-DIRECTION_KEYCODE_MAP[LEFT] = DIRECTIONS.LEFT;
-DIRECTION_KEYCODE_MAP[RIGHT] = DIRECTIONS.RIGHT;
-DIRECTION_KEYCODE_MAP[UP] = DIRECTIONS.UP;
-DIRECTION_KEYCODE_MAP[DOWN] = DIRECTIONS.DOWN;
+
+export const VALID_DIRECTIONS = {
+    left: ["up", "down"],
+    right: ["up", "down"],
+    up: ["left", "right"],
+    down: ["left", "right"],
+}
 
 
 export { DIRECTION_KEYCODE_MAP };
