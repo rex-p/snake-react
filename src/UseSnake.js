@@ -133,7 +133,7 @@ export const useSnake = () => {
             //If any new position overlap, restart game
             if (isGameOver(newBlocks)) {
                 alert("oops! Game Over");
-                return getInitialBlocks();
+                return setBlocks(getInitialBlocks());
             }
             setBlocks(newBlocks);
 
