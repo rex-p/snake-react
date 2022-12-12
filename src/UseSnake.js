@@ -61,9 +61,6 @@ export const useSnake = () => {
                     break;
             }
 
-
-
-
             newBlocks.push({ index, position, direction });
         }
         setBlocks(newBlocks);
@@ -87,9 +84,8 @@ export const useSnake = () => {
 
     //======================================================Change Direction=============================================
 
-
     const handleChangeDirection = (event) => {
-        if(!Object.values(KEYCODES).includes(event.keyCode)){
+        if (!Object.values(KEYCODES).includes(event.keyCode)) {
             return;
         }
         const snakeHead = blocks[blocks.length - 1];
